@@ -1,0 +1,4 @@
+codecov:
+  #require_ci_to_pass: yes
+  #token: 4d4507f9-307b-4e47-9c0a-2efa257fd569
+  max_report_age: off
