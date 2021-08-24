@@ -47,7 +47,8 @@ jobs:
         run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 
       - name: generate report
-        run: mvn -DskipTests=true compile generate-resources --no-transfer-progress cobertura:cobertura
+        #run: mvn -DskipTests=true compile generate-resources --no-transfer-progress cobertura:cobertura
+        run: mvn -Dlog.console.close=true  clean generate-resources cobertura:cobertura
          
       - name: codecov
         uses: codecov/codecov-action@v2.0.1
