@@ -22,7 +22,7 @@ script:
 
 after_success:
    - mvn -Dlog.console.close=true  clean generate-resources cobertura:cobertura coveralls:report
-   - bash <(curl -s https://codecov.io/bash)
+   #- bash <(curl -s https://codecov.io/bash)
 
 branches:
   only:

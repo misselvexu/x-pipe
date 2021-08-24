@@ -44,8 +44,9 @@ jobs:
 
       - name: Build with Maven
 #        run: mvn test -P githubAction --no-transfer-progress cobertura:cobertura
-        run: |
-         mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V 
+        run: mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+      - name: generate report
          mvn -DskipTests=true compile generate-resources --no-transfer-progress cobertura:cobertura
          
       - name: codecov
