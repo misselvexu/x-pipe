@@ -57,7 +57,7 @@ jobs:
           file: ${{ github.workspace }}/**/target/site/jacoco/jacoco.xml
 
       - name: find files
-        run: ls redis/redis-checker/target/
+        run: ls ./redis/redis-checker/target/site/cobertura
 
       - name: Upload coverage to codecov
         run: curl -s https://codecov.io/bash | bash
