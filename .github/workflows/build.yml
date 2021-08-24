@@ -48,13 +48,16 @@ jobs:
 
       - name: generate report
         #run: mvn -DskipTests=true compile generate-resources --no-transfer-progress cobertura:cobertura
-        run: mvn -Dlog.console.close=true  clean generate-resources cobertura:cobertura
+        run: mvn -Dlog.console.close=true  clean generate-resources --no-transfer-progress cobertura:cobertura
          
       - name: codecov
         uses: codecov/codecov-action@v2.0.1
         with:
           token: 50484ce1-6e23-4309-87ac-e2cf9d3a3b4f
           file: ${{ github.workspace }}/**/target/site/jacoco/jacoco.xml
+
+      - name: find files
+        run: ls ./redis/redis-checker/cobertura
 
       - name: Upload coverage to codecov
         run: curl -s https://codecov.io/bash | bash
