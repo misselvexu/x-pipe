@@ -28,12 +28,12 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
 
-      - name: buildcahe
-        run: |
-          git clone https://github.com/ctripcorp/x-pipe.git
-          cd x-pipe
-          git checkout mvn_repo
-          sh install.sh
+#      - name: buildcahe
+#        run: |
+#          git clone https://github.com/ctripcorp/x-pipe.git
+#          cd x-pipe
+#          git checkout mvn_repo
+#          sh install.sh
 
       - name: Cache Maven packages
         uses: actions/cache@v2
@@ -49,6 +49,7 @@ jobs:
       - name: codecov
         uses: codecov/codecov-action@v2.0.1
         with:
+          token: 50484ce1-6e23-4309-87ac-e2cf9d3a3b4f
           file: ${{ github.workspace }}/**/target/site/jacoco/jacoco.xml
 
       - name: Upload coverage to codecov
